@@ -1,10 +1,10 @@
 import numpy as np
-from constants import EARTH_MU, EARTH_RADIUS
+from constants import EARTH_MU
 
-def keplarian_to_cartesian(t, keplarian_state):
+def keplarian_to_cartesian(t, keplarian_state, mu = EARTH_MU):
     a, e, i, ω, Ω, T = keplarian_state
     # a (semimajor axis) is in km
-    n = np.sqrt(EARTH_MU/(a**3))
+    n = np.sqrt(mu/(a**3))
     M = n * (t - T)
     M = np.mod(M, 2 * np.pi)
     E = M
