@@ -1,18 +1,16 @@
 import numpy as np
 from constants import EARTH_MU, EARTH_RADIUS, ISS_AREA, ISS_CD, ISS_MASS
-from pyatmos import read_sw_nrlmsise00
 from pyatmos import nrlmsise00
 from datetime import timedelta
 
 
-def orbital_derivatives(t, state, epoch = None, mu = EARTH_MU, mass = ISS_MASS, A = ISS_AREA, CD = ISS_CD):
+def orbital_derivatives(t, state, swdata, epoch = None, mu = EARTH_MU, mass = ISS_MASS, A = ISS_AREA, CD = ISS_CD):
     x, y, z, vx, vy, vz = state
     r_vec = np.array([x, y, z])
     v_vec = np.array([vx, vy, vz])
     r_mag = np.linalg.norm(r_vec)
     a_gravity = -mu * r_vec / r_mag**3
 
-    swdata = read_sw_nrlmsise00("data/SW-Last5Years.csv")
     utc = epoch + timedelta(seconds = t)
     t_str = utc.strftime("%Y-%m-%d %H:%M:%S")
     alt = r_mag - EARTH_RADIUS

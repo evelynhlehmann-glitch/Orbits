@@ -9,7 +9,7 @@ def plot_trajectories(state):
     ax = fig.add_subplot(111, projection='3d')
     earth_texture = plt.imread("data/bluemarble-2048.png")
 
-    u, v = np.mgrid[0:2*np.pi:300j, 0:np.pi:150j]
+    u, v = np.mgrid[0:2*np.pi:80j, 0:np.pi:40j]
 
     sphere_x = R * np.cos(u) * np.sin(v)
     sphere_y = R * np.sin(u) * np.sin(v)

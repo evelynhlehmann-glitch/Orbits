@@ -4,5 +4,5 @@ MOON_MU = 4902.8 #km^3/s^2
 MOON_RADIUS = 1737.4 #
 
 ISS_MASS = 420000            # kg
-ISS_AREA = 400000              # m^2
+ISS_AREA = 1000             # m^2
 ISS_CD = 2.2      
